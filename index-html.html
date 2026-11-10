@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shaïna Bicha — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Hanken+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbfbfa;--ink:#1b1b1d;--muted:#6b6b70;--line:#dcdcd8;--tile:#efefec;
+--serif:"Cormorant Garamond","Iowan Old Style",Georgia,serif;--sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141415;--ink:#ecebe8;--muted:#9a9a9f;--line:#333336;--tile:#1d1d1f}}
+:root[data-theme="dark"]{--bg:#141415;--ink:#ecebe8;--muted:#9a9a9f;--line:#333336;--tile:#1d1d1f}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:300 1rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+a{color:inherit;text-decoration-color:var(--line);text-underline-offset:.25em}
+a:hover{text-decoration-color:currentColor}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.25rem 2rem;padding-top:1rem;padding-bottom:1rem}
+.brand{font-family:var(--serif);font-size:1.5rem;font-weight:400;text-decoration:none;letter-spacing:.01em}
+nav{display:flex;gap:1.5rem;font-size:.95rem}
+nav a{text-decoration:none;color:var(--muted);padding:.2rem 0;border-bottom:1px solid transparent}
+nav a:hover{color:var(--ink)}
+nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
+
+.view{display:none;padding-bottom:5rem}
+.view.on{display:block;animation:in .5s ease both}
+@keyframes in{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.view.on{animation:none}}
+
+.hero{padding:clamp(3.5rem,10vw,8rem) 0 clamp(3rem,7vw,5.5rem)}
+.hero p.k{color:var(--muted);margin:0 0 1.5rem}
+h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.7rem,8.5vw,6.2rem);line-height:1.02;letter-spacing:-.012em;margin:0;max-width:14ch}
+.lead{font-family:var(--serif);font-size:clamp(1.2rem,2.6vw,1.55rem);line-height:1.4;max-width:34rem;margin:2rem 0 0}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.25rem}
+.btn{display:inline-block;padding:.7rem 1.4rem;border:1px solid var(--ink);text-decoration:none;font-size:.95rem;font-weight:400;transition:background .2s,color .2s}
+.btn:hover,.btn.fill{background:var(--ink);color:var(--bg)}
+.btn.fill:hover{background:transparent;color:var(--ink)}
+
+h2{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:0 0 2.5rem}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;border-top:1px solid var(--line);padding-top:2.5rem}
+.head h2{margin-bottom:2rem}
+.head a{font-size:.95rem;color:var(--muted)}
+
+.idx{list-style:none;margin:0;padding:0}
+.idx a{display:grid;grid-template-columns:4rem 1fr;gap:.25rem 1.5rem;padding:1.4rem 0;border-top:1px solid var(--line);text-decoration:none;transition:padding-left .25s}
+.idx li:last-child a{border-bottom:1px solid var(--line)}
+.idx a:hover{padding-left:.75rem}
+.idx .y{color:var(--muted);font-size:.9rem;padding-top:.5rem}
+.idx .t{font-family:var(--serif);font-size:clamp(1.3rem,3vw,1.8rem);line-height:1.25}
+.idx .s{grid-column:2;color:var(--muted);font-size:.92rem}
+
+.about{display:grid;gap:1.5rem;border-top:1px solid var(--line);padding-top:2.5rem;margin-top:5rem}
+.about p{max-width:38rem;margin:0 0 1rem}
+@media(min-width:800px){.about{grid-template-columns:1fr 2fr;gap:3rem}.about h2{margin:0}}
+
+.pj{display:grid;gap:1.25rem;padding:2.75rem 0;border-top:1px solid var(--line)}
+.cv{aspect-ratio:4/3;background:var(--tile);display:flex;flex-direction:column;justify-content:space-between;padding:1.25rem;font-family:var(--serif)}
+.cv b{font-weight:300;font-size:clamp(3.5rem,12vw,6.5rem);line-height:.9}
+.cv i{font-size:1.05rem;color:var(--muted)}
+.pj h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,3.4vw,2.1rem);line-height:1.2;margin:0 0 .75rem}
+.pj p{max-width:36rem;margin:0 0 1rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;margin:0;padding:0}
+.tags li{border:1px solid var(--line);padding:.1rem .75rem;font-size:.85rem;color:var(--muted);border-radius:99px}
+@media(min-width:800px){.pj{grid-template-columns:1fr 1.15fr;gap:3rem;align-items:center}.pj:nth-of-type(even) .cv{order:2}}
+
+.row{display:grid;gap:.4rem 3rem;padding:1.6rem 0;border-top:1px solid var(--line)}
+.row h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.3;margin:0}
+.row .w,.row .d{color:var(--muted);font-size:.92rem;margin:0}
+.row ul{margin:.6rem 0 0;padding-left:1.1rem;max-width:38rem}
+.row li{margin-bottom:.3rem}
+@media(min-width:800px){.row{grid-template-columns:12rem 1fr}}
+.sub{font-family:var(--serif);font-weight:300;font-size:1.8rem;margin:3.5rem 0 1rem}
+.sk{display:grid;gap:1rem;margin:0}
+.sk div{padding:1.2rem 0;border-top:1px solid var(--line)}
+.sk dt{font-weight:500}
+.sk dd{margin:.1rem 0 0;color:var(--muted);max-width:40rem}
+@media(min-width:800px){.sk div{display:grid;grid-template-columns:12rem 1fr;gap:3rem}}
+
+.mail{font-family:var(--serif);font-weight:300;font-size:clamp(1.5rem,6.2vw,3.4rem);line-height:1.15;word-break:break-word}
+.ct{margin-top:3.5rem}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+footer .wrap{padding-top:1.5rem;padding-bottom:2.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem}
+</style>
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="brand" href="#accueil">Shaïna Bicha</a>
+  <nav aria-label="Navigation principale">
+    <a href="#accueil">Accueil</a><a href="#travaux">Travaux</a><a href="#parcours">Parcours</a><a href="#contact">Contact</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+
+<div class="view on" id="accueil">
+  <section class="hero">
+    <p class="k">Portfolio · Paris</p>
+    <h1>Patrimoine, mode et musées.</h1>
+    <p class="lead">Diplômée d’un Master 2 en histoire du patrimoine et des musées, je cherche à me former à la gestion et à la documentation des collections.</p>
+    <div class="cta"><a class="btn fill" href="#travaux">Voir les travaux</a><a class="btn" href="#contact">Me contacter</a></div>
+  </section>
+
+  <div class="head"><h2>Travaux récents</h2><a href="#travaux">Tout voir</a></div>
+  <ul class="idx">
+    <li><a href="#travaux"><span class="y">2026</span><span class="t">La collection Tati d’Azzedine Alaïa à l’épreuve de la muséalisation</span><span class="s">Mémoire de Master 2</span></a></li>
+    <li><a href="#travaux"><span class="y">2025</span><span class="t">Azzedine Alaïa face à sa double identité culturelle</span><span class="s">Mémoire de Master 1</span></a></li>
+    <li><a href="#travaux"><span class="y">2025–26</span><span class="t">Inventaire d’artothèques sur Omeka S</span><span class="s">Projet ARP, travail de groupe</span></a></li>
+    <li><a href="#travaux"><span class="y">2025</span><span class="t">Expositions et Festival Jeunes Publics</span><span class="s">Stage, Ville de Gennevilliers</span></a></li>
+  </ul>
+
+  <section class="about">
+    <h2>À propos</h2>
+    <div>
+      <p>J’apporte une solide culture patrimoniale et de la mode, une grande rigueur dans la recherche et l’analyse de sources, et une réelle motivation pour les pratiques de gestion et de documentation des collections.</p>
+      <p>Je sais synthétiser l’information avec clarté, en français comme en anglais (C1).</p>
+    </div>
+  </section>
+</div>
+
+<div class="view" id="travaux">
+  <section class="hero" style="padding-bottom:3rem"><h1 style="max-width:none">Travaux</h1>
+  <p class="lead">Recherche, documentation et organisation d’expositions.</p></section>
+
+  <article class="pj"><div class="cv"><b>2026</b><i>Mémoire de Master 2</i></div><div>
+    <h3>De la collaboration commerciale à l’objet patrimonial</h3>
+    <p>Étude de la collection Tati d’Azzedine Alaïa à l’épreuve de la muséalisation : comment un vêtement issu d’une collaboration commerciale devient un objet de patrimoine.</p>
+    <ul class="tags"><li>Mode</li><li>Muséalisation</li><li>Recherche</li></ul></div></article>
+
+  <article class="pj"><div class="cv"><b>2025</b><i>Mémoire de Master 1</i></div><div>
+    <h3>Azzedine Alaïa face à sa double identité culturelle</h3>
+    <p>Analyse de la collection printemps-été 1992, fondée sur le dépouillement d’un corpus de presse, de photographies, de vidéos et de catalogues.</p>
+    <ul class="tags"><li>Analyse iconographique</li><li>Corpus</li><li>Mode</li></ul></div></article>
+
+  <article class="pj"><div class="cv"><b>ARP</b><i>2025 – 2026</i></div><div>
+    <h3>Inventaire d’artothèques sur Omeka S</h3>
+    <p>Inventaire d’œuvres et saisie dans une base de données Omeka S, en groupe, dans le cadre du séminaire « Actualité du patrimoine » (Paris 1 Panthéon-Sorbonne). Sensibilisation à la structuration des données patrimoniales.</p>
+    <ul class="tags"><li>Omeka S</li><li>Inventaire</li><li>Documentation</li></ul></div></article>
+
+  <article class="pj"><div class="cv"><b>177 h</b><i>Janvier – février 2025</i></div><div>
+    <h3>Expositions et Festival Jeunes Publics</h3>
+    <p>Stage à la Direction de la Culture et de la Jeunesse de Gennevilliers : contribution à l’organisation de deux expositions (art contemporain et « Trésors de Banlieues ») et du Festival Jeunes Publics.</p>
+    <ul class="tags"><li>Exposition</li><li>Action culturelle</li></ul></div></article>
+</div>
+
+<div class="view" id="parcours">
+  <section class="hero" style="padding-bottom:3rem"><h1 style="max-width:none">Parcours</h1></section>
+
+  <h2 class="sub" style="margin-top:0">Formation</h2>
+  <div class="row"><p class="d">2026</p><div><h3>Master 2 Histoire du patrimoine et des musées</h3><p class="w">Université Paris 1 Panthéon-Sorbonne</p></div></div>
+  <div class="row"><p class="d">2025</p><div><h3>Master 1 Patrimoine et musées</h3><p class="w">Université Paris 1 Panthéon-Sorbonne</p></div></div>
+  <div class="row"><p class="d">2024</p><div><h3>CPES Histoire et théorie des arts</h3><p class="w">Université PSL</p></div></div>
+  <div class="row"><p class="d">2021</p><div><h3>Baccalauréat, mention Très Bien</h3><p class="w">Lycée Paul Éluard (SES, LLCER anglais)</p></div></div>
+
+  <h2 class="sub">Expériences</h2>
+  <div class="row"><p class="d">2025 – 2026</p><div><h3>Projet ARP, séminaire « Actualité du patrimoine »</h3><p class="w">Master 2, Paris 1 Panthéon-Sorbonne</p><ul><li>Inventaire d’œuvres d’artothèques et saisie dans Omeka S, en groupe.</li><li>Sensibilisation à la structuration et à la documentation des bases de données.</li></ul></div></div>
+  <div class="row"><p class="d">Janv. – févr. 2025</p><div><h3>Stagiaire, Direction de la Culture et de la Jeunesse</h3><p class="w">Ville de Gennevilliers (177 h)</p><ul><li>Organisation de deux expositions et du Festival Jeunes Publics.</li><li>Découverte du fonctionnement d’un service culturel municipal.</li></ul></div></div>
+  <div class="row"><p class="d">2023 – 2025</p><div><h3>Bénévole, association ArtisMultimedia</h3><p class="w">Saint-Denis</p><ul><li>Soutien administratif et actions solidaires locales pendant deux ans.</li></ul></div></div>
+  <div class="row"><p class="d">Été 2022</p><div><h3>Agente de service hospitalier vacataire</h3><p class="w">Centre Cardiologique du Nord, Saint-Denis</p><ul><li>Rigueur, respect des protocoles et travail en équipe.</li></ul></div></div>
+
+  <h2 class="sub">Compétences</h2>
+  <dl class="sk">
+    <div><dt>Gestion des collections</dt><dd>Notions : inventaire d’œuvres, enjeux de muséalisation (scénographie, choix d’exposition).</dd></div>
+    <div><dt>Recherche documentaire</dt><dd>Corpus de presse, photographies, vidéo et catalogues ; analyse iconographique ; recherche bibliographique.</dd></div>
+    <div><dt>Bases de données</dt><dd>Omeka S, structuration des données.</dd></div>
+    <div><dt>Analyse et rédaction</dt><dd>Analyse critique de sources, synthèse, travaux de recherche.</dd></div>
+    <div><dt>Outils</dt><dd>Zotero, Word, PowerPoint.</dd></div>
+  </dl>
+</div>
+
+<div class="view" id="contact">
+  <section class="hero" style="padding-bottom:2rem"><h1 style="max-width:none">Contact</h1>
+  <p class="lead">Un poste, un stage, un projet de collection : écrivez-moi.</p></section>
+  <a class="mail" href="mailto:shaina.bicha0708@gmail.com">shaina.bicha0708@gmail.com</a>
+  <dl class="sk ct">
+    <div><dt>Langues</dt><dd>Français, langue maternelle. Anglais, C1.</dd></div>
+    <div><dt>Centres d’intérêt</dt><dd>Mode et histoire du vêtement, cinéma, voyage.</dd></div>
+  </dl>
+</div>
+
+</main>
+<footer><div class="wrap"><span>© 2026 Shaïna Bicha</span><span>Paris</span></div></footer>
+
+<script>
+(function(){
+  var views=[].slice.call(document.querySelectorAll('.view')),links=[].slice.call(document.querySelectorAll('nav a'));
+  function show(){
+    var id=(location.hash||'#accueil').slice(1);
+    if(!document.getElementById(id))id='accueil';
+    views.forEach(function(v){v.classList.toggle('on',v.id===id)});
+    links.forEach(function(a){a.getAttribute('href')==='#'+id?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')});
+    window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',show);show();
+})();
+</script>
+</body>
+</html>
